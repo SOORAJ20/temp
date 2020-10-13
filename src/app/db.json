@@ -1,0 +1,42 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "KFC",
+      "address": "North Kochin",
+      "email": "kfc@kfc.com"
+    },
+    {
+      "name": "imperial",
+      "email": "imp@imp.com",
+      "address": "gurgon",
+      "id": 2
+    },
+    {
+      "name": "McD",
+      "email": "mcd@mcd.com",
+      "address": "trivandrum",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "name": "Sooraj.M",
+      "email": "sj@sj.com",
+      "password": "ertot",
+      "id": 1
+    },
+    {
+      "name": "Sooraj.M",
+      "email": "sj@sj.com",
+      "password": "3456",
+      "id": 2
+    },
+    {
+      "name": "Sooraj.M",
+      "email": "sj@sj.com",
+      "password": "er",
+      "id": 3
+    }
+  ]
+}
