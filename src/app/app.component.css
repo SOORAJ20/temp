@@ -1,0 +1,9 @@
+footer{
+        padding: 10px;
+        /* color: skyblue; */
+        background-color: #f1f3f4;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+}
