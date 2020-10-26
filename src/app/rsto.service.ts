@@ -8,6 +8,9 @@ export class RstoService {
   url="http://localhost:3000/restaurants"
   rootUrl="http://localhost:3000/"
 
+  userlist:any=[];
+  userexist:boolean=false;
+
   constructor( private http:HttpClient) {}
     getList(){
      return  this.http.get(this.url)
@@ -32,4 +35,25 @@ export class RstoService {
     registerUser(data){
       return this.http.post(this.rootUrl+"users",data)
     }
+
+    findUser(username: string, password: string){
+       this.http.get(this.rootUrl+"users").subscribe((data)=>{
+        this.userlist=data;
+        for(let i=0;i<this.userlist.length;i++){
+          if(this.userlist[i].email==username && this.userlist[i].password==password){
+            this.userexist=true;
+          }
+        }
+      
+    });
+    return this.userexist;
+
+    }
+    loginUser(username: string, password: string){
+
+      this.userexist=false;
+      return this.http.put(`${this.rootUrl+"auth"}/${"1"}`,{username,password});
+
+    }
+    
 }

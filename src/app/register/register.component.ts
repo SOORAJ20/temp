@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewContainerRef,ComponentFactoryResolver, OnInit } from '@angular/core';
 import{ FormControl, FormGroup } from '@angular/forms'
+import { from } from 'rxjs';
 import {RstoService} from '../rsto.service'
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +17,9 @@ export class RegisterComponent implements OnInit {
     password: new FormControl(' ')
   })
 
-  constructor(private resto: RstoService) { }
+  constructor(private resto: RstoService,
+     private vcr: ViewContainerRef, 
+     private cfr: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +34,13 @@ export class RegisterComponent implements OnInit {
         });
         
       }
-      closeAlert(){
-        this.alert=false;
-      }
+  closeAlert(){
+    this.alert=false;
+  }
+
+  async loadLogin(){
+    this.vcr.clear();
+    const {LoginComponent}=await import('../login/login.component');
+    this.vcr.createComponent(this.cfr.resolveComponentFactory(LoginComponent))
+  }
 }
